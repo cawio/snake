@@ -1,3 +1,11 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .game-container {
   display: flex;
   flex-direction: column;
@@ -37,4 +45,23 @@
   display: flex;
   gap: 20px;
   margin-bottom: 20px;
+}
+
+.main-content {
+  display: flex;
+  height: 100%;
+}
+
+.ranking {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  ol {
+    margin-block-start: .5rem;
+  }
 }
