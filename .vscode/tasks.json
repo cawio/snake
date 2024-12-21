@@ -37,6 +37,20 @@
           }
         }
       }
+    },
+    {
+      "label": "Deploy Angular App",
+      "type": "shell",
+      "command": "ng",
+      "args": [
+        "deploy",
+        "--base-href=/cawio/"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
     }
   ]
 }
