@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SnakeComponent } from './snake/snake.component';
 import { MenubarModule } from 'primeng/menubar';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,14 @@ import { MenubarModule } from 'primeng/menubar';
 })
 export class AppComponent {
   title = 'Multiplayer Snake';
+  isMobile: boolean = false;
+
+  constructor(private breakpointObserver: BreakpointObserver) {
+    this.breakpointObserver
+      .observe([Breakpoints.Handset])
+      .subscribe((result) => {
+        this.isMobile = result.matches;
+        console.log('Is mobile:', this.isMobile);
+      });
+  }
 }
