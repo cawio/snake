@@ -97,16 +97,11 @@ export class SnakeComponent implements OnInit {
     () => this.players().find((p) => p.id === this.id)?.score || 0
   );
   id = '';
-  alive: boolean = true;
-
-  constructor() {
-    effect(
-      () =>
-        (this.alive = this.players().some(
-          (p) => p.id === this.id && p.state === PlayerState.ALIVE
-        ))
-    );
-  }
+  alive = computed(() =>
+    this.players().some(
+      (p) => p.id === this.id && p.state === PlayerState.ALIVE
+    )
+  );
 
   ngOnInit(): void {
     this.initGrid();

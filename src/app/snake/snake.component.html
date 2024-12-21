@@ -3,11 +3,7 @@
         <input pInputText id="name" [(ngModel)]="username" />
         <label for="name">Username</label>
     </p-float-label>
-    @if (alive) {
-        <p-button label="Leave" [severity]="'danger'" (click)="leave()"></p-button>
-    } @else {
-        <p-button label="Join" [severity]="'success'" (click)="join()"></p-button>
-    }
+    <p-button [label]="alive() ? 'Leave' : 'Join'" [severity]="alive() ? 'danger' : 'success'" (click)="alive() ? leave() : join()"></p-button>
 </div>
 <div class="main-content">
     <p>Your Score: {{ score() }}</p>
