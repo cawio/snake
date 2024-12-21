@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { ButtonModule } from 'primeng/button';
+import { environment } from '../../environments/environment';
 
 interface Cell {
   x: number;
@@ -150,7 +151,7 @@ export class SnakeComponent implements OnInit {
 
   connectToGame(): void {
     this.id = this.generateRandomId();
-    this.webSocketService.connect('ws://localhost:3000?id=' + this.id);
+    this.webSocketService.connect(environment.backendUrl + '?id=' + this.id);
 
     this.webSocketService.messages$.subscribe((data) => {
       if (data.type === 'state-update') {
