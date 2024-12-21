@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Message } from './snake.component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WebSocketService {
   private socket!: WebSocket;
-  private incomingMessages = new Subject<any>();
+  private incomingMessages = new Subject<Message<unknown>>();
 
   // Observable for incoming messages
   public messages$ = this.incomingMessages.asObservable();
@@ -16,8 +17,8 @@ export class WebSocketService {
     this.socket = new WebSocket(url);
 
     // Handle incoming messages
-    this.socket.onmessage = (event) => {
-      const data = JSON.parse(event.data);
+    this.socket.onmessage = (event: MessageEvent) => {
+      const data = JSON.parse(event.data) as Message<unknown>;
       this.incomingMessages.next(data);
     };
 
@@ -35,7 +36,7 @@ export class WebSocketService {
   }
 
   // Send a message to the WebSocket server
-  sendMessage(message: any): void {
+  sendMessage(message: Message<unknown>): void {
     if (this.socket && this.socket.readyState === WebSocket.OPEN) {
       this.socket.send(JSON.stringify(message));
     } else {
