@@ -44,7 +44,7 @@
       "command": "ng",
       "args": [
         "deploy",
-        "--base-href=/cawio/"
+        "--base-href=/snake/"
       ],
       "group": {
         "kind": "build",
