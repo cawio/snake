@@ -63,11 +63,10 @@ export type PlayerMessageData = {
 };
 
 @Component({
-  selector: 'app-snake',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './snake.component.html',
-  styleUrl: './snake.component.scss',
+    selector: 'app-snake',
+    imports: [FormsModule],
+    templateUrl: './snake.component.html',
+    styleUrl: './snake.component.scss'
 })
 export class SnakeComponent implements OnInit {
   private webSocketService = inject(WebSocketService);
