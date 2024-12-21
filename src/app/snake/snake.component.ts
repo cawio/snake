@@ -124,7 +124,7 @@ export class SnakeComponent implements OnInit {
     }
 
     const usernameTaken = this.players().some(
-      (p) => p.id !== this.id && p.id === this.username()
+      (p) => p.id !== this.id && p.username === this.username()
     );
     if (usernameTaken) {
       alert('Username already taken!');
