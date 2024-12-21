@@ -24,6 +24,9 @@ jobs:
       - name: Install Dependencies
         run: bun install
 
+      - name: Install Angular CLI
+        run: bun install -g @angular/cli
+
       # Step 4: Deploy the Angular App
       - name: Deploy Angular App
         run: ng deploy --base-href=/snake/
