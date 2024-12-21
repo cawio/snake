@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   computed,
   effect,
@@ -10,6 +9,9 @@ import {
 } from '@angular/core';
 import { WebSocketService } from './web-socket.service';
 import { FormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { ButtonModule } from 'primeng/button';
 
 interface Cell {
   x: number;
@@ -63,10 +65,16 @@ export type PlayerMessageData = {
 };
 
 @Component({
-    selector: 'app-snake',
-    imports: [FormsModule],
-    templateUrl: './snake.component.html',
-    styleUrl: './snake.component.scss'
+  selector: 'app-snake',
+  imports: [
+    FormsModule,
+    FloatLabelModule,
+    InputTextModule,
+    FloatLabelModule,
+    ButtonModule,
+  ],
+  templateUrl: './snake.component.html',
+  styleUrl: './snake.component.scss',
 })
 export class SnakeComponent implements OnInit {
   private webSocketService = inject(WebSocketService);
