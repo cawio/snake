@@ -1,15 +1,15 @@
-<div class=header>
-    <h1>Snake</h1>
-    <p-float-label>
-        <input pInputText id="name" [(ngModel)]="username" />
-        <label for="name">Username</label>
-    </p-float-label>
-    @if (alive) {
-        <p-button label="Leave" (click)="leave()"></p-button>
-    } @else {
-        <p-button label="Join" (click)="join()"></p-button>
-    }
 <div class="game-container">
+    <div class=header>
+        <p-float-label>
+            <input pInputText id="name" [(ngModel)]="username" />
+            <label for="name">Username</label>
+        </p-float-label>
+        @if (alive) {
+            <p-button label="Leave" (click)="leave()"></p-button>
+        } @else {
+            <p-button label="Join" (click)="join()"></p-button>
+        }
+    </div>
     @for (row of grid(); track $index) {
         <div class="row">
             @for (cell of row; track $index) {
