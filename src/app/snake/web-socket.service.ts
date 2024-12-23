@@ -30,8 +30,10 @@ export class WebSocketService {
     // Reconnect on close (optional)
     this.socket.onclose = () => {
       console.log('WebSocket connection closed');
-      // Optionally, you can reconnect:
-      setTimeout(() => this.connect(url), 1000);
+      // Optionally, you can show a message to the user and allow them to reconnect manually
+      if (confirm('WebSocket connection closed. Do you want to reconnect?')) {
+        this.connect(url);
+      }
     };
   }
 
